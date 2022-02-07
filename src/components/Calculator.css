@@ -1,3 +1,26 @@
-.button {
-  color: aqua;
+.calc-container {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: gray;
+}
+
+.span-four {
+  grid-column: 1 / -1;
+  text-align: right;
+  padding-right: 5px;
+  padding-top: 12px;
+  color: antiquewhite;
+}
+
+.span-two {
+  grid-column: 1 / 3;
+}
+
+.orange {
+  background: orangered;
+  border: 1px solid grey;
 }

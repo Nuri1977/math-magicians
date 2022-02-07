@@ -10,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="Calculator">
+      <div className="calculator">
         <Calculator />
       </div>
     );
