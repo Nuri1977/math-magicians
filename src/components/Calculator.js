@@ -7,7 +7,9 @@ const Calculator = () => {
   const [next, setNext] = useState('');
   const [operation, setOperation] = useState('');
 
-  const handleClick = (value) => {
+  const handleClick = (event) => {
+    const value = calculate({ total, operation, next }, event.target.innerText);
+
     if (value.total != null) {
       setTotal(value.total);
     }
@@ -18,7 +20,6 @@ const Calculator = () => {
     }
   };
 
-  const obj = { total, operation, next };
   return (
     <div className="calc-container">
       <div className="span-four">
@@ -26,25 +27,25 @@ const Calculator = () => {
         { operation }
         { next }
       </div>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '+/-')); }}>+/-</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, 'AC')); }}>AC</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '%')); }}>%</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '÷')); }} className="orange">÷</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '7')); }}>7</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '8')); }}>8</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '9')); }}>9</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, 'x')); }} className="orange">x</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '4')); }}>4</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '5')); }}>5</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '6')); }}>6</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '-')); }} className="orange">-</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '1')); }}>1</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '2')); }}>2</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '3')); }}>3</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '+')); }} className="orange">+</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '0')); }} className="span-two">0</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '.')); }}>.</button>
-      <button type="button" onClick={() => { handleClick(calculate(obj, '=')); }} className="orange">=</button>
+      <button type="button" onClick={handleClick}>AC</button>
+      <button type="button" onClick={handleClick}>+/-</button>
+      <button type="button" onClick={handleClick}>%</button>
+      <button type="button" onClick={handleClick} className="orange">÷</button>
+      <button type="button" onClick={handleClick}>7</button>
+      <button type="button" onClick={handleClick}>8</button>
+      <button type="button" onClick={handleClick}>9</button>
+      <button type="button" onClick={handleClick} className="orange">x</button>
+      <button type="button" onClick={handleClick}>4</button>
+      <button type="button" onClick={handleClick}>5</button>
+      <button type="button" onClick={handleClick}>6</button>
+      <button type="button" onClick={handleClick} className="orange">-</button>
+      <button type="button" onClick={handleClick}>1</button>
+      <button type="button" onClick={handleClick}>2</button>
+      <button type="button" onClick={handleClick}>3</button>
+      <button type="button" onClick={handleClick} className="orange">+</button>
+      <button type="button" onClick={handleClick} className="span-two">0</button>
+      <button type="button" onClick={handleClick}>.</button>
+      <button type="button" onClick={handleClick} className="orange">=</button>
     </div>
   );
 };
