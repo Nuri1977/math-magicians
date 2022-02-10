@@ -1,61 +1,53 @@
-import React, { Component } from 'react';
 import './Calculator.css';
+import { useState } from 'react';
 import calculate from '../logic/calculate';
 
-class Calculator extends Component {
-  constructor() {
-    super();
-    this.state = {
-      total: '0',
-      next: '',
-      operation: '',
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Calculator = () => {
+  const [total, setTotal] = useState('0');
+  const [next, setNext] = useState('');
+  const [operation, setOperation] = useState('');
 
-  handleClick(value) {
+  const handleClick = (event) => {
+    const value = calculate({ total, operation, next }, event.target.innerText);
+
     if (value.total != null) {
-      this.setState({ total: value.total });
+      setTotal(value.total);
     }
-
-    this.setState({ next: value.next });
+    setNext(value.next);
 
     if (value.operation != null) {
-      this.setState({ operation: value.operation });
+      setOperation(value.operation);
     }
-  }
+  };
 
-  render() {
-    const { total, operation, next } = this.state;
-    return (
-      <div className="calc-container">
-        <div className="span-four">
-          { total }
-          { operation }
-          { next }
-        </div>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, 'AC')); }}>AC</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '+/-')); }}>+/-</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '%')); }}>%</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '÷')); }} className="orange">÷</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '7')); }}>7</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '8')); }}>8</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '9')); }}>9</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, 'x')); }} className="orange">x</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '4')); }}>4</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '5')); }}>5</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '6')); }}>6</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '-')); }} className="orange">-</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '1')); }}>1</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '2')); }}>2</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '3')); }}>3</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '+')); }} className="orange">+</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '0')); }} className="span-two">0</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '.')); }}>.</button>
-        <button type="button" onClick={() => { this.handleClick(calculate(this.state, '=')); }} className="orange">=</button>
+  return (
+    <div className="calc-container">
+      <div className="span-four">
+        { total }
+        { operation }
+        { next }
       </div>
-    );
-  }
-}
+      <button type="button" onClick={handleClick}>AC</button>
+      <button type="button" onClick={handleClick}>+/-</button>
+      <button type="button" onClick={handleClick}>%</button>
+      <button type="button" onClick={handleClick} className="orange">÷</button>
+      <button type="button" onClick={handleClick}>7</button>
+      <button type="button" onClick={handleClick}>8</button>
+      <button type="button" onClick={handleClick}>9</button>
+      <button type="button" onClick={handleClick} className="orange">x</button>
+      <button type="button" onClick={handleClick}>4</button>
+      <button type="button" onClick={handleClick}>5</button>
+      <button type="button" onClick={handleClick}>6</button>
+      <button type="button" onClick={handleClick} className="orange">-</button>
+      <button type="button" onClick={handleClick}>1</button>
+      <button type="button" onClick={handleClick}>2</button>
+      <button type="button" onClick={handleClick}>3</button>
+      <button type="button" onClick={handleClick} className="orange">+</button>
+      <button type="button" onClick={handleClick} className="span-two">0</button>
+      <button type="button" onClick={handleClick}>.</button>
+      <button type="button" onClick={handleClick} className="orange">=</button>
+    </div>
+  );
+};
 
 export default Calculator;
