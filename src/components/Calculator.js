@@ -21,8 +21,8 @@ const Calculator = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="container flex align-start">
+      <div className="calc-title">
         <h1>Let&apos;s do some math!</h1>
       </div>
       <div className="calc-container">
