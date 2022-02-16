@@ -16,6 +16,7 @@ exports[`Testing Calculator component Calculatore renders correctly 1`] = `
   >
     <div
       className="span-four"
+      data-testid="value"
     >
       0
       
