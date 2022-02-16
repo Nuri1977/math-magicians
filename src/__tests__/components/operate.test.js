@@ -1,4 +1,4 @@
-import operate from '../logic/operate';
+import operate from '../../logic/operate';
 
 describe('Operate', () => {
   const num1 = 4;
