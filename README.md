@@ -7,6 +7,8 @@
 - Make simple calculations.
 - Read a random math-related quote.
 
+![screenshot](./src/Presentation1.jpg)
+
 ## Built With
 
 - ReactJS
